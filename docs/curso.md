@@ -22,8 +22,7 @@ Bem-vindo ao curso "Como Construir Seu Primeiro Projeto com Python e Flask"! Nes
 
 - **Descrição:** Configuração do ambiente de desenvolvimento e apresentação das rotas da api.
 
-- Arquivo Swagger:
-  [swagger.yaml](https://prod-files-secure.s3.us-west-2.amazonaws.com/08f749ff-d06d-49a8-a488-9846e081b224/ed6a76a6-2060-4db5-a74b-61dfe37cf4a0/swagger.yaml)
+- [Swagger](https://app.swaggerhub.com/apis-docs/nlnadialigia/e-commerce_api/1.0.0)
 
 ### **Aula 2: Integração de Banco de Dados, Roteamento e Modelos**
 
