@@ -1,0 +1,120 @@
+@baseUrl = http://127.0.0.1:5000
+
+@authToken = {{login.response.body.access_token}}
+
+@productId = {{addProduct.response.body.id}}
+@q = {{addProduct.response.body.name}}
+@itemId = 1
+
+
+###
+
+# @name helloWorld
+GET {{baseUrl}}/ HTTP/1.1
+Content-Type: application/json
+
+###
+
+# @name login
+POST {{baseUrl}}/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "janedoe",
+    "password": "123456"
+}
+
+###
+
+# @name logout
+POST {{baseUrl}}/logout HTTP/1.1
+Content-Type: application/json
+
+{
+  "username": "janedoe",
+  "password": "123456"
+}
+
+###
+
+# @name productById
+GET {{baseUrl}}/api/products/{{productId}} HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+###
+
+# @name searchProducts
+GET {{baseUrl}}/api/products/search?{{q}} HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+###
+
+# @name addProduct
+POST {{baseUrl}}/api/products/add HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "id": 1,
+  "name": "produto1",
+  "price": 10,
+  "description": "descrição do produto1"
+}
+
+###
+
+# @name updateProductById
+PUT {{baseUrl}}/api/products/update/{{productId}} HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "id": 1,
+  "name": "produto1",
+  "price": 15,
+  "description": "descrição do produto1 atualizado"
+}
+
+###
+
+# @name deleteProductById
+DELETE {{baseUrl}}/api/products/delete/{{productId}} HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+###
+
+# @name listProducts
+GET {{baseUrl}}/api/products HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+###
+
+# @name addItemToCart
+POST {{baseUrl}}/api/cart/add/{{productId}} HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+###
+
+# @name removeCartItemById
+DELETE {{baseUrl}}/api/cart/remove/{{itemId}} HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+###
+
+# @name checkoutAndClearCart
+POST {{baseUrl}}/api/cart/checkout HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+###
+
+# @name viewUserCart
+GET {{baseUrl}}/api/cart HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
